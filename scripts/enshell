@@ -14,7 +14,5 @@ export trace=false
 #to the console
 
 export traceSends=false
-export shell=com.echonest.api.v4.tests.EchonestDevShell
-
-jar=lib/jEN.jar:lib/json_simple-1.1.jar
-java -DECHO_NEST_API_KEY=$ECHO_NEST_API_KEY -cp $jar $shell
+jar=dist/jEN.jar
+java -DECHO_NEST_API_KEY=$ECHO_NEST_API_KEY -jar $jar
