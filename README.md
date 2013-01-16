@@ -1,9 +1,19 @@
 # jEN 
 
+jEN is an open source Java library for the [Echo Nest API](http://developer.echonest.com/docs/v4/). 
+
+# Quick Start
+
+  * Download the [latest distribution](http://static.echonest.com.s3.amazonaws.com/jEN/files/jEN-4.x.s.zip)
+  * Read the extensive [Javadocs for jEN](http://static.echonest.com.s3.amazonaws.com/jEN/javadoc)
+  * Browse the [examples](https://github.com/echonest/jEN/tree/master/src/com/echonest/api/v4/examples)
+
+# What is it?
+
 * jEN is an open source Java library for the Echo Nest API. With jEN you have Java
 access to the entire set of API methods including:
 
- **artist** - search for artists by name, description, or attribute, and get
+* **artist** - search for artists by name, description, or attribute, and get
   back detailed information about any artist including audio, similar artists,
   blogs, familiarity, hotttnesss, news, reviews, urls and video.
 * **song** - search songs by artist, title, description, or attribute (tempo,
@@ -99,3 +109,7 @@ Browse some of the code samples
         Athlete Wires = (Album Version)
 
     nest% 
+
+# Previous releases
+
+  * Jan 16, 2013 [jEN-4.x.s.zip](http://static.echonest.com.s3.amazonaws.com/jEN/files/jEN-4.x.s.zip)
