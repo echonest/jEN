@@ -1,6 +1,6 @@
 # jEN 
 
-jEN is an open source Java library for the Echo Nest API. With jEN you have Java
+* jEN is an open source Java library for the Echo Nest API. With jEN you have Java
 access to the entire set of API methods including:
 
  **artist** - search for artists by name, description, or attribute, and get
@@ -14,14 +14,10 @@ access to the entire set of API methods including:
   with detailed track info including timbre, pitch, rhythm and loudness
   information.
 * **playlists** - create personalized playlists based on a wide range of parameters
-
+* **taste profiles** - provide for personalized recommendation and playlisting
 
 This is a Java client API and assorted tools and helpers for the Echo Nest API (at developer.echonest.com). This
 client works with Version 4 of the Echo Nest API.
-
-Note - if you want to work with Version 3.0 of the Echo Nest API, you should use Version 3 of the Echo Nest Java
-API
-
 
 ## Artist Methods
 Some of the Echo Nest artist capabilities:
@@ -39,16 +35,15 @@ Some of the Echo Nest artist capabilities:
 ## Song methods
 Some of the Echo Nest track capabilities:
 
-Search for songs
-Get info about a song including:
-audio summary
-audio
-a detailed audio analysis
-song hotttnesss
-artist hotttnesss
-artist familiarity
-artist location
-Find similar songs
+ * Search for songs
+ * Get info about a song including:
+ * audio summary
+ * detailed audio analysis
+ * song hotttnesss
+ * artist hotttnesss
+ * artist familiarity
+ * artist location
+ * Find similar songs
 
 # Getting Started
  * Download the latest release
@@ -67,10 +62,12 @@ Browse some of the code samples
 
 # Running a test shell
 
-  % scripts/enshell
-    Welcome to The Echo Nest API Shell
-       type 'help' 
+    % scripts/enshell
+      Welcome to The Echo Nest API Shell
+      type 'help' 
+
     nest% get_similar weezer
+
     Similarity for Weezer
       Rivers Cuomo
       The Rentals
@@ -89,6 +86,7 @@ Browse some of the code samples
       Foo Fighters
 
     nest% splaylist Muse
+
         Muse Time = Is Running Out
         Coldplay = Viva La Vida
         Travis = Sing

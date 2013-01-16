@@ -1,1 +1,0 @@
-jar cvf lib/jEN.jar -C build/classes .

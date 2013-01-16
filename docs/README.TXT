@@ -37,7 +37,7 @@ Included with the API is a command line interface to the Echo Nest
 API. You can use this shell to interact with the Echo Nest.  To run
 the shell invoke the 'enshell' script, or run the command:
 
-java -DECHO_NEST_API_KEY=$MY_ECHO_NEST_KEY -jar lib/jEN-xx.jar 
+java -DECHO_NEST_API_KEY=$MY_ECHO_NEST_KEY -jar jEN.jar 
 
 Type 'help' to show the list of available commands.  Try some:
 
@@ -52,3 +52,13 @@ Version 1.1 - May 13, 2010
    - support for Echo Nest API version 4.1
    - Added support for artist search with constraints
    - Addes support for top terms
+
+Version 4.x.r - January 16, 2013
+
+    - Moved to github
+    - Added support for genre playlists
+    - Added support for dynamic playlist 2.0
+    - Added artist location support
+    - Added support for general taste profiles
+    - Added support for song types (live, studio, christmas)
+    - Added support for Taste Profile Attribute Details

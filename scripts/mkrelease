@@ -1,13 +1,12 @@
 ver=$1
 dir=jEN-$ver
-mkdir -p dist/lib
-jar cvf dist/lib/jEN.jar -C build/classes com
-cp lib/json_simple-1.1.jar dist/lib
-jar umf docs/MANIFEST.MF dist/lib/jEN.jar
-cp docs/README.TXT  dist
-scripts/mkjdocrel
-mv javadoc dist
-cp docs/license.txt dist
-mv dist $dir
-jar cf $dir.zip $dir
-#rm -rf $dir
+stage=releases/$dir
+
+ant jar
+
+mkdir -p $stage
+cp dist/jEN.jar $stage
+cp -r dist/lib $stage
+cp docs/README.txt $stage
+cp docs/license.txt $stage
+jar cf files/$dir.zip $stage

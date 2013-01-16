@@ -1,0 +1,1 @@
+s3cmd sync --acl-public javadoc files s3://static.echonest.com/jEN/
