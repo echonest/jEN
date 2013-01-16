@@ -1,0 +1,3 @@
+This code is copyright (c) 2009 by The Echo Nest
+It is released under the New BSD License.
+http://www.opensource.org/licenses/bsd-license.php

@@ -1,0 +1,3 @@
+Main-Class: com.echonest.api.v4.tests.EchonestDevShell
+Class-Path: json_simple-1.1.jar
+

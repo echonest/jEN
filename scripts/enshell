@@ -1,0 +1,20 @@
+# To use the echo nest api you need an api key. You can get one from
+# http://developer.echonest.com/account/register/
+#
+# Set your API key here:
+
+# export MY_ECHO_NEST_KEY=YOUR_API_KEY
+
+#if 'trace' is set to true all commands and responses
+# will be echoed to the console
+
+export trace=false
+
+#if 'traceSends' is set to true, all commands will be sent
+#to the console
+
+export traceSends=false
+export shell=com.echonest.api.v4.tests.EchonestDevShell
+
+jar=lib/jEN.jar:lib/json_simple-1.1.jar
+java -DECHO_NEST_API_KEY=$ECHO_NEST_API_KEY -cp $jar $shell
