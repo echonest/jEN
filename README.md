@@ -60,3 +60,44 @@ Find similar songs
 
 # Code Examples
 Browse some of the code samples
+
+# Building the jar file
+
+  % ant jar
+
+# Running a test shell
+
+  % scripts/enshell
+    Welcome to The Echo Nest API Shell
+       type 'help' 
+    nest% get_similar weezer
+    Similarity for Weezer
+      Rivers Cuomo
+      The Rentals
+      Fountains of Wayne
+      Jimmy Eat World
+      Phantom Planet
+      The Presidents of the United States of America
+      Cake
+      Harvey Danger
+      The All-American Rejects
+      Ben Folds Five
+      Nerf Herder
+      Motion City Soundtrack
+      New Found Glory
+      Superdrag
+      Foo Fighters
+
+    nest% splaylist Muse
+        Muse Time = Is Running Out
+        Coldplay = Viva La Vida
+        Travis = Sing
+        The Killers = Here With Me
+        The Subways = I Want To Hear What You Have Got To Say
+        Bloc Party = Banquet
+        Keane = Is It Any Wonder?
+        The Cooper Temple Clause = Talking To A Brick Wall
+        Richard Ashcroft = Check The Meaning
+        Athlete Wires = (Album Version)
+
+    nest% 
