@@ -29,7 +29,7 @@ public class APITests {
 		cmd.setTraceRecvs(false);
 		sse = new SearchSongsExample();
 		Params stdParams = new Params();
-		stdParams.add("api_key", "EHY4JJEGIOFA1RCJP");
+		stdParams.add("api_key", "FILDTEOIK2HBORODV");
 		cmd.setStandardParams(stdParams);
 	}
 

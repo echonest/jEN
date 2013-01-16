@@ -711,12 +711,8 @@ public class Commander {
     public static void main(String[] args) throws Exception {
         Commander cmd = new Commander("test");
         Params stdParams = new Params();
-        stdParams.add("api_key", "EHY4JJEGIOFA1RCJP");
-        stdParams.add("api_key", "XZTXVRO3VC3FBXS8C");
-
+        stdParams.add("api_key", "FILDTEOIK2HBORODV");
         cmd.setStandardParams(stdParams);
-
-        // cmd.test();
         cmd.test2();
         cmd.test3();
     }
