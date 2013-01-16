@@ -9,4 +9,7 @@ cp dist/jEN.jar $stage
 cp -r dist/lib $stage
 cp docs/README.txt $stage
 cp docs/license.txt $stage
-jar cf files/$dir.zip $stage
+
+cd releases
+jar cMf ../files/$dir.zip $dir/
+cp ../files/$dir.zip ../files/jEN-latest.zip

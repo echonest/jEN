@@ -4,7 +4,7 @@ jEN is an open source Java library for the [Echo Nest API](http://developer.echo
 
 # Quick Start
 
-  * Download the [latest distribution](http://static.echonest.com.s3.amazonaws.com/jEN/files/jEN-4.x.s.zip)
+  * Download the [latest distribution](http://static.echonest.com.s3.amazonaws.com/jEN/files/jEN-latest.zip)
   * Read the extensive [Javadocs for jEN](http://static.echonest.com.s3.amazonaws.com/jEN/javadoc/index.html)
   * Browse the [examples](https://github.com/echonest/jEN/tree/master/src/com/echonest/api/v4/examples)
 
