@@ -158,4 +158,8 @@ Type 'help' to show the list of available commands.  Try some:
 
 # Previous releases
 
+  * Jan 18, 2013 [jEN-4.x.t.zip](http://static.echonest.com.s3.amazonaws.com/jEN/files/jEN-4.x.t.zip)
+      * Added more examples
+      * Fixed throttle code on API error
+      * Improved deploy
   * Jan 16, 2013 [jEN-4.x.s.zip](http://static.echonest.com.s3.amazonaws.com/jEN/files/jEN-4.x.s.zip)

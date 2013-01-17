@@ -1,6 +1,12 @@
 Build it:
 
-ant.jar
+ant jar
+
+check it all in
+
+ % git commit -a
+ % git push
+
 
 Pick release version (should be next in the sequence)
 
@@ -22,9 +28,9 @@ Update README.md to describe the new release like so
     * added new stuff
     * added other new stuff
 
-check it all in
+check in the readme
 
- % git commit -a
+ % git commit -a 
  % git push
 
 
