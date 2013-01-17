@@ -1,0 +1,42 @@
+Build it:
+
+ant.jar
+
+Pick release version (should be next in the sequence)
+
+% ls releases
+  releases/jEN-4.x.s
+
+
+Build the release
+
+  scripts/mkrelease 4.x.t
+
+Build the docs
+
+  scripts/mkjavadoc
+
+Update README.md to describe the new release like so
+
+  * Jan 18, 2013 [jEN-4.t.s.zip](http://static.echonest.com.s3.amazonaws.com/jEN/files/jEN-4.x.t.zip)
+    * added new stuff
+    * added other new stuff
+
+check it all in
+
+ % git commit -a
+ % git push
+
+
+Deploy it:
+
+   % scripts/deploy
+
+
+Test it:
+    visit https://github.com/echonest/jEN to make sure the new links in the README work
+
+Promote it:
+    Do a blog post or tweet if the release is significant
+
+  
