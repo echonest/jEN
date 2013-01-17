@@ -1,7 +1,6 @@
 package com.echonest.api.v4.examples;
 
 import com.echonest.api.v4.Artist;
-import com.echonest.api.v4.Audio;
 import com.echonest.api.v4.Biography;
 import com.echonest.api.v4.Blog;
 import com.echonest.api.v4.EchoNestAPI;
@@ -35,21 +34,6 @@ public class ArtistExamples {
             System.out.printf("   %10s %s\n", key, artist.getUrls().get(key));
         }
 
-        System.out.println(" =========  audio ======== ");
-        List<Audio> audioList = artist.getAudio();
-        for (int i = 0; i < audioList.size(); i++) {
-            System.out.printf("     == audio %d == \n", i + 1);
-            Audio audio = audioList.get(i);
-            audio.dump();
-        }
-
-        System.out.println(" =========  audio2 ======== ");
-        List<Audio> audioList2 = artist.getAudio(10, 40);
-        for (int i = 0; i < audioList2.size(); i++) {
-            System.out.printf("     == audio2 %d == \n", i + 1);
-            Audio audio = audioList2.get(i);
-            audio.dump();
-        }
 
         System.out.println(" =========  bios ======== ");
         List<Biography> bios = artist.getBiographies();
@@ -97,8 +81,8 @@ public class ArtistExamples {
     public void searchArtistByName(String name, int results)
             throws EchoNestException {
         Params p = new Params();
-        p.add("query", name);
-        p.add("rows", results);
+        p.add("name", name);
+        p.add("results", results);
 
         List<Artist> artists = en.searchArtists(p);
         for (Artist artist : artists) {

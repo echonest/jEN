@@ -48,7 +48,7 @@ public class DynamicPlaylistExample {
 
             char c = (char) cv;
 
-            System.out.println("c " + c + " " + cv);
+            // System.out.println("c " + c + " " + cv);
 
             if (c == 'd') {
                 done = true;

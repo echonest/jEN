@@ -7,10 +7,9 @@ import java.util.List;
 
 public class SimlarArtists {
 
-    public static String API_KEY = "YOUR_API_KEY";
-
     public static void main(String[] args) throws EchoNestException {
-        EchoNestAPI echoNest = new EchoNestAPI(API_KEY);
+        EchoNestAPI echoNest = new EchoNestAPI();
+        echoNest.setTraceSends(true);
         List<Artist> artists = echoNest.searchArtists("Weezer");
 
         if (artists.size() > 0) {
