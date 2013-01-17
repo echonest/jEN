@@ -344,13 +344,19 @@ public class Commander {
 
     private int throttle(HttpURLConnection urc) {
         int throttle = 0;
+
         if (autoThrottle) {
-            int remainingCalls = Integer.parseInt(urc.getHeaderField("X-RateLimit-Remaining"));
-            int remainingTime = getMillisecondsRemaining(urc.getHeaderField("Date"));
-            if (remainingCalls > 0) {
-                throttle = remainingTime / remainingCalls;
-            } else {
-                throttle = remainingTime;
+            try {
+
+                int remainingCalls = Integer.parseInt(urc.getHeaderField("X-RateLimit-Remaining"));
+                int remainingTime = getMillisecondsRemaining(urc.getHeaderField("Date"));
+                if (remainingCalls > 0) {
+                    throttle = remainingTime / remainingCalls;
+                } else {
+                    throttle = remainingTime;
+                }
+            } catch (NumberFormatException e) {
+                throttle = minCommandTime;
             }
             // System.out.printf("Autothrottle rt:%d rc:%d throttle:%d\n", remainingTime, remainingCalls, throttle);
         }
@@ -415,8 +421,11 @@ public class Commander {
                 p.put(kv.getKey(), kv.getValue());
             }
 
-            for (String s : p.keySet()) {
-                System.out.printf("   %s=%s\n", s, p.get(s));
+
+            if (false) {
+                for (String s : p.keySet()) {
+                    System.out.printf("   %s=%s\n", s, p.get(s));
+                }
             }
             for (String key : p.keySet()) {
                 out.write(PREFIX);

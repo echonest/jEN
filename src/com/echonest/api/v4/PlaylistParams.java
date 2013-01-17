@@ -11,7 +11,8 @@ public class PlaylistParams extends Params {
 
         TEMPO, DURATION, LOUDNESS, ARTIST_FAMILIARITY, ARTIST_HOTTTNESSS,
         ARTIST_START_YEAR, ARTIST_END_YEAR,
-        SONG_HOTTTNESSS, LATITUDE, LONGITUDE, MODE, KEY, DANCEABILITY, ENERGY,}
+        SONG_HOTTTNESSS, LATITUDE, LONGITUDE, MODE, KEY, DANCEABILITY, ENERGY,
+    }
 
     /**
      * Sets the type of the playlist. Default is ARTIST
@@ -51,6 +52,18 @@ public class PlaylistParams extends Params {
      */
     public void setVariety(float variety) {
         set("variety", variety);
+    }
+
+    /**
+     * Controls the distribution of artists in the playlist. A focused
+     * distribution yields a playlist of songs that are tightly clustered around
+     * the seeds, whereas a wandering distribution yields a playlist from a
+     * broader range of artists.
+     *
+     * @param variety a value between 0 and 1
+     */
+    public void setDistribution(boolean focused) {
+        set("distribution", focused  ? "focused" : "wandering");
     }
 
     /**

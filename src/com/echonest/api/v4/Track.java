@@ -7,23 +7,36 @@ import java.util.Map;
 import com.echonest.api.v4.util.Commander;
 
 public class Track extends ENItem {
+
     private final static String PATH = "track";
     private final static String TYPE = "track";
 
-    /** The status of an analysis */
+    /**
+     * The status of an analysis
+     */
     public enum AnalysisStatus {
-        /** track is unknown */
+
+        /**
+         * track is unknown
+         */
         UNKNOWN,
-        /** track analysis is underway */
+        /**
+         * track analysis is underway
+         */
         PENDING,
-        /** track analysis is complete */
+        /**
+         * track analysis is complete
+         */
         COMPLETE,
-        /** track analysis is unavailable */
+        /**
+         * track analysis is unavailable
+         */
         UNAVAILABLE,
-        /** track analysis failed */
+        /**
+         * track analysis failed
+         */
         ERROR
     };
-
     private TrackAnalysis analysis = null;
     private AnalysisStatus currentStatus = AnalysisStatus.UNKNOWN;
 
@@ -35,15 +48,16 @@ public class Track extends ENItem {
     Track(EchoNestAPI en, Map data) throws EchoNestException {
         super(en, TYPE, PATH, data);
     }
-    
+
     /**
      * Creates a track given an ID
+     *
      * @param en the EchoNest API
      * @param id the ID of the track
      * @return the track
      * @throws EchoNestException
      */
-     @SuppressWarnings("unchecked")
+    @SuppressWarnings("unchecked")
     static Track createTrack(EchoNestAPI en, String id) throws EchoNestException {
         Map data = new HashMap();
         data.put("id", id);
@@ -51,12 +65,12 @@ public class Track extends ENItem {
         return track;
     }
 
-
-     /**
-      * Gets the analysis url for the track
-      * @return
-      * @throws EchoNestException
-      */
+    /**
+     * Gets the analysis url for the track
+     *
+     * @return
+     * @throws EchoNestException
+     */
     public String getAnalysisURL() throws EchoNestException {
         fetchBucket("audio_summary");
         String url = getString("audio_summary.analysis_url");
@@ -65,7 +79,7 @@ public class Track extends ENItem {
 
     /**
      * Gets the analysis status for the track
-     * 
+     *
      * @return the analysis status
      */
     public AnalysisStatus getStatus() throws EchoNestException {
@@ -89,18 +103,20 @@ public class Track extends ENItem {
         // System.out.println("GS " + currentStatus);
         return currentStatus;
     }
-    
+
     /**
      * Gets the title of the track
+     *
      * @return the title of the track
      * @throws EchoNestException
      */
     public String getTitle() throws EchoNestException {
         return getTopLevelItem("title");
     }
-    
+
     /**
      * Gets the artist name for the track
+     *
      * @return
      * @throws EchoNestException
      */
@@ -110,42 +126,47 @@ public class Track extends ENItem {
 
     /**
      * Gets the preview url
+     *
      * @return
      * @throws EchoNestException
      */
     public String getPreviewUrl() throws EchoNestException {
         return getTopLevelItem("preview_url");
     }
-    
+
     /**
      * Gets the audio url
+     *
      * @return
      * @throws EchoNestException
      */
     public String getAudioUrl() throws EchoNestException {
         return getTopLevelItem("audio_url");
     }
-    
+
     /**
      * Gets the release name for the track
+     *
      * @return
      * @throws EchoNestException
      */
     public String getReleaseName() throws EchoNestException {
         return getTopLevelItem("release");
     }
-    
+
     /**
      * Gets the MD5 of the audio for the track
+     *
      * @return
      * @throws EchoNestException
      */
     public String getAudioMD5() throws EchoNestException {
         return getTopLevelItem("audio_md5");
     }
-    
+
     /**
      * Gets the foreign ID for the track
+     *
      * @return
      * @throws EchoNestException
      */
@@ -155,13 +176,14 @@ public class Track extends ENItem {
 
     /**
      * Gets the song ID associated with this track
+     *
      * @return the song id
      * @throws EchoNestException
      */
     public String getSongID() throws EchoNestException {
         return getTopLevelItem("song_id");
     }
-    
+
     private String getTopLevelItem(String itemName) throws EchoNestException {
         if (getStatus() == null) {
             refresh();
@@ -171,9 +193,8 @@ public class Track extends ENItem {
 
     /**
      * Wait for an analysis to finish
-     * 
-     * @param timeoutMillis
-     *            maximum milliseconds to wait for the analysis
+     *
+     * @param timeoutMillis maximum milliseconds to wait for the analysis
      * @return the status
      * @throws com.echonest.api.v3.artist.EchoNestException
      */
@@ -202,9 +223,10 @@ public class Track extends ENItem {
         }
         return analysis;
     }
-    
+
     /**
      * Gets the key for the track
+     *
      * @return
      * @throws EchoNestException
      */
@@ -212,9 +234,10 @@ public class Track extends ENItem {
         fetchBucket("audio_summary");
         return getInteger("audio_summary.key");
     }
-    
+
     /**
      * Gets the tempo for the track
+     *
      * @return
      * @throws EchoNestException
      */
@@ -222,9 +245,10 @@ public class Track extends ENItem {
         fetchBucket("audio_summary");
         return getDouble("audio_summary.tempo");
     }
-    
+
     /**
      * Gets the mode for the track
+     *
      * @return
      * @throws EchoNestException
      */
@@ -232,9 +256,10 @@ public class Track extends ENItem {
         fetchBucket("audio_summary");
         return getInteger("audio_summary.mode");
     }
-    
+
     /**
      * Gets the time signature for the track
+     *
      * @return
      * @throws EchoNestException
      */
@@ -242,9 +267,10 @@ public class Track extends ENItem {
         fetchBucket("audio_summary");
         return getInteger("audio_summary.time_signature");
     }
-    
+
     /**
      * Gets the duration for the track
+     *
      * @return
      * @throws EchoNestException
      */
@@ -252,9 +278,10 @@ public class Track extends ENItem {
         fetchBucket("audio_summary");
         return getDouble("audio_summary.duration");
     }
-    
+
     /**
      * Gets the loudness for the track
+     *
      * @return
      * @throws EchoNestException
      */
@@ -264,15 +291,57 @@ public class Track extends ENItem {
     }
 
     /**
-     *Analyze a previously uploaded track with the latest version of the
+     * Gets the energy for the track
+     *
+     * @return
+     * @throws EchoNestException
+     */
+    public double getEnergy() throws EchoNestException {
+        fetchBucket("audio_summary");
+        return getDouble("audio_summary.energy");
+    }
+
+    /**
+     * Gets the danceability for the track
+     *
+     * @return
+     * @throws EchoNestException
+     */
+    public double getDanceability() throws EchoNestException {
+        fetchBucket("audio_summary");
+        return getDouble("audio_summary.danceability");
+    }
+
+    /**
+     * Gets the speechiness for the track
+     *
+     * @return
+     * @throws EchoNestException
+     */
+    public double getSpeechiness() throws EchoNestException {
+        fetchBucket("audio_summary");
+        return getDouble("audio_summary.speechiness");
+    }
+
+    /**
+     * Gets the liveness for the track
+     *
+     * @return
+     * @throws EchoNestException
+     */
+    public double getLiveness() throws EchoNestException {
+        fetchBucket("audio_summary");
+        return getDouble("audio_summary.liveness");
+    }
+    
+    /**
+     * Analyze a previously uploaded track with the latest version of the
      * analyzer.
-     * 
-     * @param wait
-     *            if true, wait for the analysis
+     *
+     * @param wait if true, wait for the analysis
      * @return the ID of the track
      * @throws com.echonest.api.v3.artist.EchoNestException
      */
-
     @SuppressWarnings("unchecked")
     public AnalysisStatus reanalyze(boolean wait) throws EchoNestException,
             IOException {
