@@ -156,7 +156,7 @@ Type 'help' to show the list of available commands.  Try some:
 
     nest% 
 
-# Previous releases
+# Release History
 
   * Jan 18, 2013 [jEN-4.x.t.zip](http://static.echonest.com.s3.amazonaws.com/jEN/files/jEN-4.x.t.zip)
       * Added more examples

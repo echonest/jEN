@@ -40,7 +40,8 @@ Deploy it:
 
 
 Test it:
-    visit https://github.com/echonest/jEN to make sure the new links in the README work
+    * visit https://github.com/echonest/jEN to make sure the new links in the README work
+    * Download the zip and unzip it and make sure you can run the enshell
 
 Promote it:
     Do a blog post or tweet if the release is significant
