@@ -104,6 +104,7 @@ Here's some sample code that shows how to get similar artists with the API:
 Browse some of the code [examples](https://github.com/echonest/jEN/tree/master/src/com/echonest/api/v4/examples)
 
 # Building the jar file
+Grab the source, cd to the top leve directory and issue:
 
     % ant jar
 
