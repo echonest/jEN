@@ -204,12 +204,12 @@ public class Track extends ENItem {
         long elapsed = 0;
         AnalysisStatus status = AnalysisStatus.UNKNOWN;
         do {
-			// Pause long enough that even free accounts don't use up their rate limit polling
-			try {
-				Thread.sleep (6000);
-			} catch (InterruptedException e) {
-			}
-			
+            // Pause long enough that even free accounts don't use up their rate limit polling
+            try {
+                Thread.sleep (6000);
+            } catch (InterruptedException e) {
+            }
+            
             status = getStatus();
             elapsed = System.currentTimeMillis() - startTime;
         } while (status == AnalysisStatus.PENDING && elapsed < timeoutMillis);
