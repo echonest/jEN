@@ -6,6 +6,7 @@ import com.echonest.api.v4.EchoNestAPI;
 import com.echonest.api.v4.EchoNestException;
 import com.echonest.api.v4.Params;
 import com.echonest.api.v4.Song;
+import com.echonest.api.v4.Track;
 import com.echonest.api.v4.SongParams;
 import java.util.List;
 
@@ -15,7 +16,7 @@ public class SearchSongsExample {
 
     public SearchSongsExample() throws EchoNestException {
         en = new EchoNestAPI();
-        en.setTraceSends(false);
+        en.setTraceSends(true);
         en.setTraceRecvs(false);
     }
 
@@ -117,6 +118,33 @@ public class SearchSongsExample {
         en.showStats();
     }
 
+    public void searchSongsWithIDSpace(String artist, int results)
+            throws EchoNestException {
+        SongParams p = new SongParams();
+        p.setArtist(artist);
+        p.setLimitAny();
+        p.includeTracks();
+        p.addIDSpace("rdio-US");
+        p.addIDSpace("spotify-WW");
+
+        List<Song> songs = en.searchSongs(p);
+        for (Song song : songs) {
+            System.out.printf("%s\n", song.getTitle());
+            System.out.printf("   artist: %s\n", song.getArtistName());
+            Track rdioTrack = song.getTrack("rdio-US");
+            if (rdioTrack != null) {
+                System.out.printf("Rdio FID %s\n", rdioTrack.getForeignID());
+            }
+
+            Track spotifyTrack = song.getTrack("spotify-WW");
+            if (spotifyTrack != null) {
+                System.out.printf("Spotify FID %s\n", spotifyTrack.getForeignID());
+            }
+
+            System.out.println();
+        }
+    }
+
     public static void main(String[] args) throws EchoNestException {
         SearchSongsExample sse = new SearchSongsExample();
 
@@ -134,6 +162,9 @@ public class SearchSongsExample {
         }
 
         sse.searchForFastestSongsByArtist("led zeppelin", 10);
+
+        System.out.println("Search songs with IDspaces");
+        sse.searchSongsWithIDSpace("Weezer", 5);
         sse.stats();
 
     }

@@ -65,6 +65,13 @@ public class Track extends ENItem {
         return track;
     }
 
+    @SuppressWarnings("unchecked")
+    static Track createTrackFromSong(EchoNestAPI en, Map data) throws EchoNestException {
+        Track track = new Track(en, data);
+        track.currentStatus = AnalysisStatus.COMPLETE;
+        return track;
+    }
+
     /**
      * Gets the analysis url for the track
      *
@@ -333,7 +340,7 @@ public class Track extends ENItem {
         fetchBucket("audio_summary");
         return getDouble("audio_summary.liveness");
     }
-    
+
     /**
      * Analyze a previously uploaded track with the latest version of the
      * analyzer.

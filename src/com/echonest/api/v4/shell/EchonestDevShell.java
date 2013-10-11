@@ -465,6 +465,24 @@ public class EchonestDevShell {
                 return "gets info for a song ";
             }
         });
+        
+        shell.add("get_song", new ShellCommand() {
+            public String execute(Shell ci, String[] args) throws Exception {
+                SongParams p = new SongParams();
+                p.setID(args[1]);
+                List<Song> songs = en.getSongs(p);
+                if (songs.size() >= 1) {
+                    Song song = songs.get(0);
+                    System.out.println(song.toString());
+
+                }
+                return "";
+            }
+
+            public String getHelp() {
+                return "gets info for a song ";
+            }
+        });
 
         shell.add("hot_songs", new ShellCommand() {
             public String execute(Shell ci, String[] args) throws Exception {

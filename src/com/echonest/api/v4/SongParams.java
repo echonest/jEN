@@ -137,6 +137,14 @@ public class SongParams extends Params {
         add("limit", limit);
     }
 
+    public void setLimitAny() {
+        add("limit", "any");
+    }
+
+    public void setLimitAll() {
+        add("limit", "all");
+    }
+
     public void includeAudioSummary() {
         add("bucket", "audio_summary");
     }
@@ -248,8 +256,8 @@ public class SongParams extends Params {
     public void addSongType(Song.SongType type, Song.SongTypeFlag flag) {
         add("song_type", type.toString() + ":" + flag.toString().toLowerCase());
     }
-    
-        /**
+
+    /**
      * Steer towards artists that match the given description
      *
      * @param term the term to boost
@@ -289,5 +297,4 @@ public class SongParams extends Params {
         String requiredTerm = "+" + term;
         add(type.toString(), requiredTerm);
     }
-
 }

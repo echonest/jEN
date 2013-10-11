@@ -185,7 +185,7 @@ public class Song extends ENItem {
      * @throws EchoNestException
      */
     @SuppressWarnings("unchecked")
-    public Track getTrack(String idSpace) throws EchoNestException {
+    public Track getTrackOlder(String idSpace) throws EchoNestException {
         Track track = trackMap.get(idSpace);
         if (track == null) {
             // nope, so go grab it.
@@ -207,25 +207,24 @@ public class Song extends ENItem {
         return track;
     }
 
+
+
     @SuppressWarnings("unchecked")
-    public Track getTrackNew(String idSpace) throws EchoNestException {
+    public Track getTrack(String idSpace) throws EchoNestException {
         Track track = trackMap.get(idSpace);
         if (track == null) {
-            // see if we already have the track data
-            Map map = (Map) getObject("tracks");
-            if (map == null) {
-                // nope, so go grab it.
-                String[] buckets = {"tracks", "id:" + idSpace};
-                fetchBuckets(buckets, true);
-                map = (Map) getObject("tracks");
-            }
-            if (map != null) {
-                for (Object key : map.keySet()) {
-                    String catalog = (String) key;
-                    String trid = (String) map.get(catalog);
-                    track = en.newTrackByID(trid);
-                    trackMap.put(catalog, track);
+            List tlist = (List) getObject("tracks");
+            if (tlist != null) {
+                for (Object item : tlist) {
+                    Map trackData = (Map) item;
+                    String catalog = (String) trackData.get("catalog");
+                    String trid = (String) trackData.get("id");
+                    if (!trackMap.containsKey(catalog)) {
+                        Track ttrack = Track.createTrackFromSong(en, trackData);
+                        trackMap.put(catalog, ttrack);
+                    }
                 }
+                track = trackMap.get(idSpace);
             }
         }
         return track;
