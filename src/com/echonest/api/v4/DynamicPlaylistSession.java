@@ -96,7 +96,7 @@ public class DynamicPlaylistSession {
             lookaheadResults.add(song);
         }
 
-        Playlist playlist = new Playlist(songResults, lookaheadResults, session);
+        Playlist playlist = new Playlist(songResults, lookaheadResults, sessionID);
         return playlist;
     }
 
