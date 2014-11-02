@@ -1,11 +1,13 @@
 package com.echonest.api.v4;
 
 import com.echonest.api.v4.util.MQuery;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class TrackAnalysis {
+public class TrackAnalysis implements Serializable{
 
     @SuppressWarnings("unchecked")
     private Map map;
