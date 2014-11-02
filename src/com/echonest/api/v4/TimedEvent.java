@@ -1,10 +1,11 @@
 package com.echonest.api.v4;
 
+import java.io.Serializable;
 import java.util.Map;
 
 import com.echonest.api.v4.util.MQuery;
 
-public class TimedEvent {
+public class TimedEvent implements Serializable{
 
     private double start;
     private double duration;

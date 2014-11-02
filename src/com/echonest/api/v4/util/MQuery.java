@@ -1,9 +1,10 @@
 package com.echonest.api.v4.util;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 
-public class MQuery {
+public class MQuery implements Serializable {
 
     @SuppressWarnings("unchecked")
     private Map data;
