@@ -42,6 +42,7 @@ public class DynamicPlaylistSession {
      * @throws EchoNestException
      */
     public void restart(Params p) throws EchoNestException {
+        p.set("session_id", this.sessionID);
         Map results = en.getCmd().sendCommand("playlist/dynamic/restart", p);
         Map response = (Map) results.get("response");
 
