@@ -485,7 +485,6 @@ public class EchoNestAPI {
 
         p.add("url", trackUrl.toExternalForm());
         p.add("wait", wait ? "true" : "false");
-        p.add("upload", (String) null);
         if (wait) {
             p.add("bucket", "audio_summary");
         }
